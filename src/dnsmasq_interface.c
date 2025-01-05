@@ -1241,10 +1241,12 @@ static bool special_domain(const queriesData *query, const char *domain)
 	// client devices.
 	// > mask.icloud.com
 	// > mask-h2.icloud.com
+	// > mask-canary.icloud.com
 	// https://developer.apple.com/support/prepare-your-network-for-icloud-private-relay
 	if(config.special_domains.icloud_private_relay &&
 	   (strcasecmp(domain, "mask.icloud.com") == 0 ||
-	    strcasecmp(domain, "mask-h2.icloud.com") == 0))
+	    strcasecmp(domain, "mask-h2.icloud.com") == 0 ||
+	    strcasecmp(domain, "mask-canary.icloud.com") == 0))
 	{
 		blockingreason = "Apple iCloud Private Relay domain";
 		force_next_DNS_reply = REPLY_NXDOMAIN;
